@@ -16,6 +16,10 @@
     <rosparam file="$(find turtlebot3_navigation)/param/dwa_local_planner_params_$(arg model).yaml" command="load" />
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
+
+    <!-- planner-->
+    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+    <rosparam file="$(find turtlebot3_navigation)/param/global_planner_params.yaml" command="load" />
     <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
   </node>
 </launch>
