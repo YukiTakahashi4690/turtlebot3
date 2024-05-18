@@ -89,7 +89,7 @@
       <topicName>imu</topicName>
       <serviceName>imu_service</serviceName>
       <gaussianNoise>0.0</gaussianNoise>
-      <updateRate>200</updateRate>
+      <updateRate>0</updateRate>
       <imu>
         <noise>
           <type>gaussian</type>
@@ -126,8 +126,8 @@
           </horizontal>
         </scan>
         <range>
-          <min>0.120</min>
-          <max>3.5</max>
+          <min>0.2</min>
+          <max>30</max>
           <resolution>0.015</resolution>
         </range>
         <noise>
@@ -144,138 +144,13 @@
   </gazebo>
 
 <!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_left_frame">
-    <sensor type="camera" name="camera_left">
+  <!-- <gazebo reference="camera_rgb_frame">
+    <sensor type="camera" name="Pi Camera">
       <always_on>true</always_on>
       <visualize>$(arg camera_visual)</visualize>
       <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <!--130°-->
-          <!-- <horizontal_fov>2.27</horizontal_fov> -->
-          <!--150°-->
-          <!-- <horizontal_fov>2.62</horizontal_fov> -->
+          <horizontal_fov>1.085595</horizontal_fov>
           <image>
-              <!-- <width>694</width> -->
-              <!-- <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-		<topicName>camera_left</topicName>
-		<alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_left</cameraName>
-        <frameName>camera_rgb_optical_left_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_left_left_frame">
-    <sensor type="camera" name="camera_left_left">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <image>
-              <!-- <width>694</width>
-              <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-		<topicName>camera_left_left</topicName>
-		<alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_left_left</cameraName>
-        <frameName>camera_rgb_optical_left_left_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_left_right_frame">
-    <sensor type="camera" name="camera_left_right">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <image>
-              <!-- <width>694</width>
-              <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-		<topicName>camera_left_right</topicName>
-		<alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_left_right</cameraName>
-        <frameName>camera_rgb_optical_left_right_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_frame">
-    <sensor type="camera" name="camera">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <!--130°-->
-          <!-- <horizontal_fov>2.27</horizontal_fov> -->
-          <!--150°-->
-          <!-- <horizontal_fov>2.62</horizontal_fov> -->
-          <image>
-              <!-- <width>694</width> -->
-              <!-- <height>520</height> -->
               <width>640</width>
               <height>480</height>
               <format>R8G8B8</format>
@@ -300,207 +175,100 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_center_left_frame">
-    <sensor type="camera" name="camera_center_left">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
+  <gazebo reference="omnidirectional_camera_front_frame">
+      <sensor type="wideanglecamera" name="camera">
+        <camera>
+          <horizontal_fov>3.14</horizontal_fov>
           <image>
-              <!-- <width>694</width>
-              <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
+            <width>640</width>
+            <height>640</height>
           </image>
           <clip>
-              <near>0.03</near>
-              <far>100</far>
+            <near>0.1</near>
+            <far>50</far>
           </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <lens>
+            <!-- <type>gnomonical</type> -->
+            <type>custom</type>
+            <custom_function>
+              <c1>0.5</c1>
+              <c2>4.0</c2>
+              <f>1.0</f>
+              <fun>cos</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.14</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_center_left</cameraName>
-        <frameName>camera_rgb_optical_center_left_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>camera_rgb_optical_front_frame</frameName>
+        <imageTopicName>rgb/image_raw_front</imageTopicName>
         <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
+        <CxPrime></CxPrime>
+        <Cx></Cx>
+        <Cy></Cy>
+        <focalLength></focalLength>
+        <hackBaseline>0.7</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
         <distortionK3>0.0</distortionK3>
         <distortionT1>0.0</distortionT1>
         <distortionT2>0.0</distortionT2>
       </plugin>
-    </sensor>
+      </sensor>
   </gazebo>
 
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_center_right_frame">
-    <sensor type="camera" name="camera_center_right">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
+  <gazebo reference="omnidirectional_camera_back_frame">
+      <sensor type="wideanglecamera" name="camera">
+        <camera>
+          <horizontal_fov>3.14</horizontal_fov>
           <image>
-              <!-- <width>694</width>
-              <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
+            <width>640</width>
+            <height>640</height>
           </image>
           <clip>
-              <near>0.03</near>
-              <far>100</far>
+            <near>0.1</near>
+            <far>50</far>
           </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <lens>
+            <!-- <type>gnomonical</type> -->
+            <type>custom</type>
+            <custom_function>
+              <c1>0.5</c1>
+              <c2>4.0</c2>
+              <f>1.0</f>
+              <fun>cos</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.14</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_center_right</cameraName>
-        <frameName>camera_rgb_optical_center_right_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>camera_rgb_optical_back_frame</frameName>
+        <imageTopicName>rgb/image_raw_back</imageTopicName>
         <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
+        <CxPrime></CxPrime>
+        <Cx></Cx>
+        <Cy></Cy>
+        <focalLength></focalLength>
+        <hackBaseline>0.7</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
         <distortionK3>0.0</distortionK3>
         <distortionT1>0.0</distortionT1>
         <distortionT2>0.0</distortionT2>
       </plugin>
-    </sensor>
-  </gazebo>
-
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_right_frame">
-    <sensor type="camera" name="camera_right">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <!--130°-->
-          <!-- <horizontal_fov>2.27</horizontal_fov> -->
-          <!--150°-->
-          <!-- <horizontal_fov>2.62</horizontal_fov> -->
-          <image>
-              <!-- <width>694</width> -->
-              <!-- <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <topicName>camera_right</topicName>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_right</cameraName>
-        <frameName>camera_rgb_optical_right_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_right_left_frame">
-    <sensor type="camera" name="camera_right_left">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <image>
-              <!-- <width>694</width>
-              <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <topicName>camera_right_left</topicName>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_right_left</cameraName>
-        <frameName>camera_rgb_optical_right_left_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-<!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
-  <gazebo reference="camera_rgb_right_right_frame">
-    <sensor type="camera" name="camera_right_right">
-      <always_on>true</always_on>
-      <visualize>$(arg camera_visual)</visualize>
-      <camera>
-          <!--120°-->
-          <horizontal_fov>2.09</horizontal_fov>
-          <image>
-              <!-- <width>694</width>
-              <height>520</height> -->
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <topicName>camera_right_right</topicName>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera_right_right</cameraName>
-        <frameName>camera_rgb_optical_right_right_frame</frameName>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-  <gazebo>
-    <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
-      <frameName>world</frameName>
-      <bodyName>base_link</bodyName>
-      <topicName>/tracker</topicName>
-      <updateRate>10.0</updateRate>
-    </plugin>
+      </sensor>
   </gazebo>
 
 </robot>

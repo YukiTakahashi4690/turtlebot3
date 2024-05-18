@@ -185,8 +185,8 @@
     </inertial>
   </link>
 
-  <joint name="camera_joint" type="fixed">
-    <origin xyz="0.073 -0.011 0.384" rpy="0 0.524 0"/>
+  <!-- <joint name="camera_joint" type="fixed">
+    <origin xyz="0.073 -0.011 0.084" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_link"/>
   </joint>
@@ -200,7 +200,6 @@
     </collision>
   </link>
 
-<!--center-->
   <joint name="camera_rgb_joint" type="fixed">
     <origin xyz="0.003 0.011 0.009" rpy="0 0 0"/>
     <parent link="camera_link"/>
@@ -213,128 +212,50 @@
     <parent link="camera_rgb_frame"/>
     <child link="camera_rgb_optical_frame"/>
   </joint>
-  <link name="camera_rgb_optical_frame"/>
+  <link name="camera_rgb_optical_frame"/> -->
 
-<!--center_left-->
-  <joint name="camera_rgb_center_left_joint" type="fixed">
-    <origin xyz="0.003 0.011 0.009" rpy="0 0 0.088"/>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.015 0.030 0.027"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_rgb_front_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <parent link="camera_link"/>
-    <child link="camera_rgb_center_left_frame"/>
+    <child link="omnidirectional_camera_front_frame"/>
   </joint>
-  <link name="camera_rgb_center_left_frame"/>
+  <link name="omnidirectional_camera_front_frame"/>
 
-  <joint name="camera_rgb_optical_center_left_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_center_left_frame"/>
-    <child link="camera_rgb_optical_center_left_frame"/>
+  <joint name="camera_rgb_optical_front_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="omnidirectional_camera_front_frame"/>
+    <child link="camera_rgb_optical_front_frame"/>
   </joint>
-  <link name="camera_rgb_optical_center_left_frame"/>
+  <link name="camera_rgb_optical_front_frame"/>
 
-<!--center_right-->
-  <joint name="camera_rgb_center_right_joint" type="fixed">
-    <origin xyz="0.003 0.011 0.009" rpy="0 0 -0.088"/>
+  <joint name="camera_rgb_back_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57 0 3.14"/>
     <parent link="camera_link"/>
-    <child link="camera_rgb_center_right_frame"/>
+    <child link="omnidirectional_camera_back_frame"/>
   </joint>
-  <link name="camera_rgb_center_right_frame"/>
+  <link name="omnidirectional_camera_back_frame"/>
 
-  <joint name="camera_rgb_optical_center_right_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_center_right_frame"/>
-    <child link="camera_rgb_optical_center_right_frame"/>
+  <joint name="camera_rgb_optical_back_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="omnidirectional_camera_back_frame"/>
+    <child link="camera_rgb_optical_back_frame"/>
   </joint>
-  <link name="camera_rgb_optical_center_right_frame"/>
-
-<!--left-->
-  <joint name="camera_rgb_left_joint" type="fixed">
-    <!-- <origin xyz="0.003 0.111 0.009" rpy="0 0 0.175"/> -->
-     <origin xyz="0.003 0.211 0.009" rpy="0 0 0"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_left_frame"/>
-  </joint>
-  <link name="camera_rgb_left_frame"/>
-
-  <joint name="camera_rgb_optical_left_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_left_frame"/>
-    <child link="camera_rgb_optical_left_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_left_frame"/>
-
-<!--left_left-->
-  <joint name="camera_rgb_left_left_joint" type="fixed">
-     <origin xyz="0.003 0.211 0.009" rpy="0 0 0.088"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_left_left_frame"/>
-  </joint>
-  <link name="camera_rgb_left_left_frame"/>
-
-  <joint name="camera_rgb_optical_left_left_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_left_left_frame"/>
-    <child link="camera_rgb_optical_left_left_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_left_left_frame"/>
-
-<!--left_right-->
-  <joint name="camera_rgb_left_right_joint" type="fixed">
-     <origin xyz="0.003 0.211 0.009" rpy="0 0 -0.088"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_left_right_frame"/>
-  </joint>
-  <link name="camera_rgb_left_right_frame"/>
-
-  <joint name="camera_rgb_optical_left_right_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_left_right_frame"/>
-    <child link="camera_rgb_optical_left_right_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_left_right_frame"/>
-
-<!--right-->
-  <joint name="camera_rgb_right_joint" type="fixed">
-    <!-- <origin xyz="0.003 -0.089 0.009" rpy="0 0 -0.175"/> -->
-    <origin xyz="0.003 -0.189 0.009" rpy="0 0 0"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_right_frame"/>
-  </joint>
-  <link name="camera_rgb_right_frame"/>
-
-  <joint name="camera_rgb_optical_right_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_right_frame"/>
-    <child link="camera_rgb_optical_right_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_right_frame"/>
-
-<!--right_left-->
-  <joint name="camera_rgb_right_left_joint" type="fixed">
-    <origin xyz="0.003 -0.189 0.009" rpy="0 0 0.088"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_right_left_frame"/>
-  </joint>
-  <link name="camera_rgb_right_left_frame"/>
-
-  <joint name="camera_rgb_optical_right_left_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_right_left_frame"/>
-    <child link="camera_rgb_optical_right_left_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_right_left_frame"/>
-
-<!--right_right-->
-  <joint name="camera_rgb_right_right_joint" type="fixed">
-    <origin xyz="0.003 -0.189 0.009" rpy="0 0 -0.088"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_right_right_frame"/>
-  </joint>
-  <link name="camera_rgb_right_right_frame"/>
-
-  <joint name="camera_rgb_optical_right_right_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_right_right_frame"/>
-    <child link="camera_rgb_optical_right_right_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_right_right_frame"/>
+  <link name="camera_rgb_optical_back_frame"/>
 
 </robot>
