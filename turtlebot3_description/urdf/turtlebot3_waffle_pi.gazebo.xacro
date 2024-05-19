@@ -184,6 +184,8 @@
           <image>
             <width>640</width>
             <height>640</height>
+            <!-- <width>694</width>
+            <height>520</height> -->
           </image>
           <clip>
             <near>0.1</near>
