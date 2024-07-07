@@ -177,6 +177,8 @@
     </sensor>
   </gazebo> -->
 
+  <!--front-->
+  <!--center-->
   <gazebo reference="omnidirectional_camera_front_frame">
       <sensor type="wideanglecamera" name="camera">
         <camera>
@@ -226,6 +228,102 @@
       </sensor>
   </gazebo>
 
+  <!--left-->
+  <gazebo reference="omnidirectional_camera_front_left_frame">
+      <sensor type="wideanglecamera" name="camera">
+        <camera>
+          <horizontal_fov>3.14</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>640</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>50</far>
+          </clip>
+          <lens>
+            <type>custom</type>
+            <custom_function>
+              <c1>0.5</c1>
+              <c2>4.0</c2>
+              <f>1.0</f>
+              <fun>cos</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.14</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>camera_rgb_optical_front_left_frame</frameName>
+        <imageTopicName>rgb/image_raw_front_left</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <CxPrime></CxPrime>
+        <Cx></Cx>
+        <Cy></Cy>
+        <focalLength></focalLength>
+        <hackBaseline>0.7</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+      </sensor>
+  </gazebo>
+
+  <!--right-->
+  <gazebo reference="omnidirectional_camera_front_right_frame">
+      <sensor type="wideanglecamera" name="camera">
+        <camera>
+          <horizontal_fov>3.14</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>640</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>50</far>
+          </clip>
+          <lens>
+            <type>custom</type>
+            <custom_function>
+              <c1>0.5</c1>
+              <c2>4.0</c2>
+              <f>1.0</f>
+              <fun>cos</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.14</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>camera_rgb_optical_front_right_frame</frameName>
+        <imageTopicName>rgb/image_raw_front_right</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <CxPrime></CxPrime>
+        <Cx></Cx>
+        <Cy></Cy>
+        <focalLength></focalLength>
+        <hackBaseline>0.7</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+      </sensor>
+  </gazebo>
+
+  <!--back-->
+  <!--center-->
   <gazebo reference="omnidirectional_camera_back_frame">
       <sensor type="wideanglecamera" name="camera">
         <camera>
@@ -258,6 +356,100 @@
         <cameraName>camera</cameraName>
         <frameName>camera_rgb_optical_back_frame</frameName>
         <imageTopicName>rgb/image_raw_back</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <CxPrime></CxPrime>
+        <Cx></Cx>
+        <Cy></Cy>
+        <focalLength></focalLength>
+        <hackBaseline>0.7</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+      </sensor>
+  </gazebo>
+
+  <!--left-->
+  <gazebo reference="omnidirectional_camera_back_left_frame">
+      <sensor type="wideanglecamera" name="camera">
+        <camera>
+          <horizontal_fov>3.14</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>640</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>50</far>
+          </clip>
+          <lens>
+            <type>custom</type>
+            <custom_function>
+              <c1>0.5</c1>
+              <c2>4.0</c2>
+              <f>1.0</f>
+              <fun>cos</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.14</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>camera_rgb_optical_back_left_frame</frameName>
+        <imageTopicName>rgb/image_raw_back_left</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <CxPrime></CxPrime>
+        <Cx></Cx>
+        <Cy></Cy>
+        <focalLength></focalLength>
+        <hackBaseline>0.7</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+      </sensor>
+  </gazebo>
+
+  <!--right-->
+  <gazebo reference="omnidirectional_camera_back_right_frame">
+      <sensor type="wideanglecamera" name="camera">
+        <camera>
+          <horizontal_fov>3.14</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>640</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>50</far>
+          </clip>
+          <lens>
+            <type>custom</type>
+            <custom_function>
+              <c1>0.5</c1>
+              <c2>4.0</c2>
+              <f>1.0</f>
+              <fun>cos</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.14</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>camera_rgb_optical_back_right_frame</frameName>
+        <imageTopicName>rgb/image_raw_back_right</imageTopicName>
         <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
         <CxPrime></CxPrime>
         <Cx></Cx>
